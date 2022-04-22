@@ -2,13 +2,17 @@ import React from 'react';
 import { Container, Nav, NavDropdown } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import ProductNavigation from '../ProductNagivation/ProductNavigation';
 import logo from './../../../images/logo/logo.png';
 
 const Header = () => {
   return (
     <>
-      <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
+      <Navbar
+        collapseOnSelect
+        expand='lg'
+        bg='dark'
+        variant='dark'
+        className='position-sticky sticky-top'>
         <Container>
           <Navbar.Brand href='#home'>
             <img

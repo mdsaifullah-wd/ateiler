@@ -1,6 +1,11 @@
-a {
-  text-decoration: none;
-}
 .home {
   font-size: 6rem;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #161b21;
 }
