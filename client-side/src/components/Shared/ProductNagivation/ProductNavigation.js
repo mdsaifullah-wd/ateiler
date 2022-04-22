@@ -17,7 +17,9 @@ const ProductNavigation = () => {
 
               {/* Women */}
               <NavDropdown title='Women' id='collasible-nav-dropdown1'>
-                <NavDropdown.Item href='#action/3.4'>All</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to={'product/women'}>All Women Products</Link>
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href='#action/3.1'>Saree</NavDropdown.Item>
                 <NavDropdown.Item href='#action/3.2'>
@@ -32,7 +34,7 @@ const ProductNavigation = () => {
 
               {/* Men */}
               <NavDropdown title='Men' id='collasible-nav-dropdown1'>
-                <NavDropdown.Item href='#action/3.4'>All</NavDropdown.Item>
+                <Link to={'product/men'}>All Men Products</Link>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href='#action/3.1'>Shirt</NavDropdown.Item>
                 <NavDropdown.Item href='#action/3.2'>Pants</NavDropdown.Item>
@@ -41,7 +43,8 @@ const ProductNavigation = () => {
 
               {/* Kids */}
               <NavDropdown title='Kids' id='collasible-nav-dropdown1'>
-                <NavDropdown.Item href='#action/3.4'>All</NavDropdown.Item>
+                <Link to={'product/kids'}>All Kids Products</Link>
+
                 <NavDropdown.Divider />
                 <NavDropdown.Item href='#action/3.1'>Shirt</NavDropdown.Item>
                 <NavDropdown.Item href='#action/3.2'>Pants</NavDropdown.Item>
