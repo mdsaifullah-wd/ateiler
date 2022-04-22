@@ -6,6 +6,9 @@
 - CSS
 - Javascript
 - React
+- React-router
+- React-bootstrap
+- React-icons
 - NodeJS
 - ExpressJS
 - MongoDB
