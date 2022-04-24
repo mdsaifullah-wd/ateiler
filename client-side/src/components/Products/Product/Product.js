@@ -6,7 +6,7 @@ const Product = ({ product }) => {
   const { _id, image1, title, price } = product;
   const navigate = useNavigate();
   const handleSeeDetails = (id) => {
-    navigate(`/product/${id}`);
+    navigate(`/product-details/${id}`);
   };
   return (
     <>

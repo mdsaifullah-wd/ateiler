@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import ProductNavbar from './components/Shared/ProductNavbar/ProductNavbar';
 import Products from './components/Products/Products';
 import Header from './components/Shared/Header/Header';
+import ProductDetails from './components/Products/ProductDetails/ProductDetails';
 
 function App() {
   const location = useLocation();
@@ -15,7 +16,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/products' element={<Products />}></Route>
-        <Route path='/product/*' element={<Products />}></Route>
+        <Route path='/products/*' element={<Products />}></Route>
+        <Route
+          path='/product-details/:productId'
+          element={<ProductDetails />}></Route>
       </Routes>
     </>
   );

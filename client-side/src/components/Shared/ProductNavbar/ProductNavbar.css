@@ -26,13 +26,26 @@
   margin: auto 1rem;
 }
 
-#product-categories .main-categories .main li a {
-  font-size: 2rem;
-  line-height: 2rem;
+#product-categories .main-categories .main > li > a {
+  font-size: 1.5rem;
+  line-height: 1.5;
   color: #161b21;
   text-decoration: none;
 }
 
 #product-categories .main-categories .main li a:hover {
+  color: #f4a950;
+}
+
+.sub-menu {
+  display: none;
+}
+#product-categories .main-categories .main > li:hover .sub-menu {
+  display: block;
+}
+.product-category {
+  color: #161b21;
+}
+.product-category:hover {
   color: #f4a950;
 }
