@@ -44,9 +44,9 @@ const Products = () => {
           </button>
           <div className='form-group'>
             <select onChange={handleProductPerPage} className='form-control'>
-              <option value='12'>12</option>
-              <option value='18'>18</option>
-              <option value='24'>24</option>
+              <option value='20'>20</option>
+              <option value='30'>30</option>
+              <option value='40'>40</option>
             </select>
           </div>
         </div>

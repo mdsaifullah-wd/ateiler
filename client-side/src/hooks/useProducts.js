@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 const useProducts = () => {
   const [products, setProducts] = useState([]);
   const [pages, setPages] = useState(0);
-  const [productPerPage, setProductPerPage] = useState(12);
+  const [productPerPage, setProductPerPage] = useState(20);
   const [selectedPage, setSelectedPage] = useState(0);
   const location = useLocation();
   const path = location.pathname;
