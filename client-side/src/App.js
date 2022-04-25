@@ -5,6 +5,7 @@ import ProductNavbar from './components/Shared/ProductNavbar/ProductNavbar';
 import Products from './components/Products/Products';
 import Header from './components/Shared/Header/Header';
 import ProductDetails from './components/Products/ProductDetails/ProductDetails';
+import Cart from './components/Cart/Cart';
 
 function App() {
   const location = useLocation();
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/products' element={<Products />}></Route>
         <Route path='/products/*' element={<Products />}></Route>
+        <Route path='/cart' element={<Cart />}></Route>
         <Route
           path='/product-details/:productId'
           element={<ProductDetails />}></Route>
