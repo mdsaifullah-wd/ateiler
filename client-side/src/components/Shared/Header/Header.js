@@ -3,6 +3,8 @@ import { Container, Nav, NavDropdown } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import logo from './../../../images/logo/logo.png';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import './Header.css';
 
 const Header = () => {
   return (
@@ -40,9 +42,13 @@ const Header = () => {
               <Nav.Link href='#pricing'>Contact</Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href='#deets'>More deets</Nav.Link>
-              <Nav.Link eventKey={2} href='#memes'>
-                Dank memes
+              <Nav.Link className='position-relative'>
+                <div className='position-absolute bg-danger rounded-circle cart-icon'>
+                  <p>0</p>
+                </div>
+                <Link to='/cart'>
+                  <AiOutlineShoppingCart className='h2 text-white' />
+                </Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
