@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Nav, NavDropdown } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import logo from './../../../images/logo/logo.png';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import './Header.css';
+import useCart from '../../../hooks/useCart';
 
 const Header = () => {
+  const { cart, handleAddToCart } = useCart();
+  let total = 0;
+  for (const p of cart) {
+    total += p.quantity;
+  }
   return (
     <>
       <Navbar
@@ -44,7 +50,7 @@ const Header = () => {
             <Nav>
               <Nav.Link className='position-relative'>
                 <div className='position-absolute bg-danger rounded-circle cart-icon'>
-                  <p>0</p>
+                  <p>{total}</p>
                 </div>
                 <Link to='/cart'>
                   <AiOutlineShoppingCart className='h2 text-white' />

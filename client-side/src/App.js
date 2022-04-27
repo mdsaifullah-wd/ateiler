@@ -9,6 +9,7 @@ import Cart from './components/Cart/Cart';
 
 function App() {
   const location = useLocation();
+
   return (
     <>
       <Header />

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import useProducts from '../../hooks/useProducts';
 import Product from './Product/Product';
 import './Products.css';
@@ -13,8 +14,6 @@ const Products = () => {
     handlePrevPage,
     handleNextPage,
   } = useProducts();
-
-  console.log();
 
   return (
     <>
