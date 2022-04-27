@@ -4,7 +4,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.local || 3001;
+const port = process.env.PORT || 3001;
 
 // Use Middleware
 app.use(cors());
@@ -129,6 +129,12 @@ const run = async () => {
   }
 };
 run().catch((err) => console.dir(err));
+
+// test
+app.get('/', (req, res) => {
+  res.send('test');
+});
+
 // Server Listen
 app.listen(port, () => {
   console.log('Server Running...');
