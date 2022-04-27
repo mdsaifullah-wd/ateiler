@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 const useMainCategories = () => {
   const [mainCategories, setMainCategories] = useState([]);
   useEffect(() => {
-    const url = 'http://localhost:3001/mainCategories';
+    const url = 'https://ateiler.herokuapp.com/mainCategories';
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMainCategories(data));

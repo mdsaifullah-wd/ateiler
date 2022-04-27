@@ -9,14 +9,14 @@ const useProducts = () => {
   const location = useLocation();
   const path = location.pathname;
   useEffect(() => {
-    const url = `http://localhost:3001${path}?page=${selectedPage}&products=${productPerPage}`;
+    const url = `https://ateiler.herokuapp.com${path}?page=${selectedPage}&products=${productPerPage}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [path, selectedPage, productPerPage]);
   useEffect(() => {
     setSelectedPage(0);
-    const url = `http://localhost:3001${path}/count`;
+    const url = `https://ateiler.herokuapp.com${path}/count`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -27,7 +27,7 @@ const useProducts = () => {
 
   // Fetch All product only for cart(will be optimized later)
   useEffect(() => {
-    const url = `http://localhost:3001/products`;
+    const url = `https://ateiler.herokuapp.com/products`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setAllProducts(data));
