@@ -4,7 +4,7 @@ import useProducts from '../../hooks/useProducts';
 import Product from './Product/Product';
 import './Products.css';
 
-const Products = () => {
+const Products = ({ handleAddToCart }) => {
   const {
     products,
     pages,
@@ -19,7 +19,11 @@ const Products = () => {
     <>
       <div className='product-container container mt-5'>
         {products.map((product) => (
-          <Product key={product._id} product={product} />
+          <Product
+            key={product._id}
+            product={product}
+            handleAddToCart={handleAddToCart}
+          />
         ))}
       </div>
       <div className='container p-5'>

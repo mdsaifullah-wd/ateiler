@@ -1,14 +1,12 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import useCart from '../../../hooks/useCart';
-const Product = ({ product }) => {
+const Product = ({ product, handleAddToCart }) => {
   const { _id, image1, title, price } = product;
   const navigate = useNavigate();
   const handleSeeDetails = (id) => {
     navigate(`/product-details/${id}`);
   };
-  const { handleAddToCart } = useCart();
   return (
     <>
       <Card>

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Container, Nav, NavDropdown } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import logo from './../../../images/logo/logo.png';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import './Header.css';
-import useCart from '../../../hooks/useCart';
 
-const Header = () => {
-  const { cart, handleAddToCart } = useCart();
+const Header = ({ cart }) => {
   let total = 0;
   for (const p of cart) {
     total += p.quantity;

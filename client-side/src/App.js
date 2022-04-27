@@ -6,19 +6,57 @@ import Products from './components/Products/Products';
 import Header from './components/Shared/Header/Header';
 import ProductDetails from './components/Products/ProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
+import { useEffect, useState } from 'react';
+import useProducts from './hooks/useProducts';
+import { addToLocalStorage, getStoredCart } from './hooks/useLocalStore';
 
 function App() {
   const location = useLocation();
 
+  const [cart, setCart] = useState([]);
+
+  const { allProducts } = useProducts();
+  useEffect(() => {
+    const savedCart = [];
+    const storedCart = getStoredCart();
+    for (const id in storedCart) {
+      const addedProduct = allProducts.find((product) => product._id === id);
+      const quantity = storedCart[id];
+      if (addedProduct) {
+        addedProduct.quantity = quantity;
+        savedCart.push(addedProduct);
+      }
+    }
+    setCart(savedCart);
+  }, [allProducts]);
+
+  // Handle Add to Cart
+  const handleAddToCart = (id, product) => {
+    const matched = cart.find((pd) => pd._id === id);
+    const rest = cart.filter((pd) => pd._id !== id);
+    if (matched) {
+      matched.quantity += 1;
+      setCart([...rest, matched]);
+    } else {
+      product.quantity = 1;
+      setCart([...rest, product]);
+    }
+    addToLocalStorage(id);
+  };
+
   return (
     <>
-      <Header />
+      <Header cart={cart} />
       {location.pathname !== '/' && <ProductNavbar />}
 
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/products' element={<Products />}></Route>
-        <Route path='/products/*' element={<Products />}></Route>
+        <Route
+          path='/products'
+          element={<Products handleAddToCart={handleAddToCart} />}></Route>
+        <Route
+          path='/products/*'
+          element={<Products handleAddToCart={handleAddToCart} />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
         <Route
           path='/product-details/:productId'
