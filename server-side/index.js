@@ -132,7 +132,7 @@ run().catch((err) => console.dir(err));
 
 // test
 app.get('/', (req, res) => {
-  res.send('test');
+  res.send('test api endpoint');
 });
 
 // Server Listen
