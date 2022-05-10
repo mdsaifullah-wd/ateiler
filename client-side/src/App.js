@@ -5,6 +5,7 @@ import ProductNavbar from './components/Shared/ProductNavbar/ProductNavbar';
 import Products from './components/Products/Products';
 import Header from './components/Shared/Header/Header';
 import ProductDetails from './components/Products/ProductDetails/ProductDetails';
+import Authentication from './components/Authentication/Authentication';
 import Cart from './components/Cart/Cart';
 import { useEffect, useState } from 'react';
 import useProducts from './hooks/useProducts';
@@ -57,6 +58,8 @@ function App() {
         <Route
           path='/products/*'
           element={<Products handleAddToCart={handleAddToCart} />}></Route>
+        <Route path='/login' element={<Authentication />}></Route>
+        <Route path='/register' element={<Authentication />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
         <Route
           path='/product-details/:productId'

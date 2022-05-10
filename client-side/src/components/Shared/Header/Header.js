@@ -5,8 +5,14 @@ import { Link } from 'react-router-dom';
 import logo from './../../../images/logo/logo.png';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import './Header.css';
+import { useAuthState } from 'react-firebase-hooks/auth/dist/index.cjs';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = ({ cart }) => {
+  const [user, loading, error] = useAuthState(auth);
+  console.log(user);
+
   let total = 0;
   for (const p of cart) {
     total += p.quantity;
@@ -46,6 +52,27 @@ const Header = ({ cart }) => {
               <Nav.Link href='#pricing'>Contact</Nav.Link>
             </Nav>
             <Nav>
+              {user?.email ? (
+                <>
+                  <p className='text-light'>{user?.displayName}</p>
+                  <button
+                    className='btn btn-primary'
+                    onClick={() => {
+                      signOut(auth);
+                    }}>
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Nav.Link>
+                    <Link to='/login'>Login</Link>
+                  </Nav.Link>
+                  <Nav.Link>
+                    <Link to='/register'>Register</Link>
+                  </Nav.Link>
+                </>
+              )}
               <Nav.Link className='position-relative'>
                 <div className='position-absolute bg-danger rounded-circle cart-icon'>
                   <p>{total}</p>
